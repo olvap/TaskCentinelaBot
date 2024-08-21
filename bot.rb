@@ -1,9 +1,7 @@
 require 'telegram/bot'
-require 'pry'
+require 'dotenv/load'
 
-token = '7390203145:AAHLdZl3pFcGkh5NJ0wO7FaLQ4nur3rWlhA'
-
-Telegram::Bot::Client.run(token) do |bot|
+Telegram::Bot::Client.run(ENV['TOKEN']) do |bot|
 
   bot.listen do |message|
     next unless message.is_a?(Telegram::Bot::Types::Message) && message.text
